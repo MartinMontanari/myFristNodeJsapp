@@ -1,4 +1,5 @@
 const brcypt = require('bcrypt');
+const error = require('../../../utils/error');
 const auth = require('../../../auth/index');
 const __table = 'auth';
 
@@ -18,7 +19,7 @@ module.exports = function(injectedStore) {
             return auth.sign(data);
             }
             else{
-            throw new Error('Información inválida.');
+                throw error('Información de ingreso inválida.', 401)
             }
         });    
     }
