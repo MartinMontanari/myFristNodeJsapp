@@ -33,8 +33,9 @@ async function query(table, q){
     let collection = await list(table);
     let keys = Object.keys(q);
     let key = keys[0];
+    let result = collection.filter(item => item.value === q[key.value])[0] || null;
     
-    return collection.filter(item => item.key === q[key])[0] || null;
+    return result;
 }
 module.exports = {
     list,
