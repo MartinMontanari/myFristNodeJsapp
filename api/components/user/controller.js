@@ -1,4 +1,4 @@
-const nanoid = require('nanoid');
+const { nanoid } = require('nanoid');
 const auth = require('../auth');
 
 const __table = 'user';
@@ -26,7 +26,7 @@ module.exports = function(injectedStore) {
         if(body.id){
             user.id = body.id;
         }else{
-            // user.id = nanoid();
+            user.id = nanoid();
         }
         
         if (body.password || body.username){

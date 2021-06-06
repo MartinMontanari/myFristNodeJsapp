@@ -6,6 +6,11 @@ module.exports = function(injectedStore) {
         store = store = require('../../../store/dummy');
     }
 
+    async function login(username, password){
+        const data = await store.query(__table, {username: username});
+        return data;
+    }
+
     function upsert(data) {
         const authData = {
             id: data.id,
@@ -23,5 +28,6 @@ module.exports = function(injectedStore) {
 
     return {
         upsert,
+        login
     }
 };
